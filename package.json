@@ -1,0 +1,23 @@
+{
+  "name": "baovnt-enepi-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "Bao Vo <baovnt@zigexn.vn>",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.10",
+    "autoprefixer": "^10.4.21",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5"
+  },
+  "repository": "git@github.com:ZIGExN-VeNtura-Education/baovnt-enepi-training.git",
+  "devDependencies": {
+    "sass-embedded": "^1.89.2"
+  }
+}
