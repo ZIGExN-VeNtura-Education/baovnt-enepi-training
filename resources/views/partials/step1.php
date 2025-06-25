@@ -5,17 +5,17 @@
 </div>
 
 <div class="flex flex-col items-center gap-4 md:gap-6 mb-8 px-2 md:px-0">
-  <label class="relative flex items-center bg-white border border-[1.5px] [border-color:var(--color-brown)] rounded-lg pl-4 py-3 md:pl-4 md:py-3 transition w-full mx-auto md:mx-0 max-w-[480px] min-h-[64px] cursor-pointer" style="box-shadow:0px 2px 2px 0px #00000033;">
+  <label class="relative flex items-center bg-white border border-[1.5px] border-brown rounded-lg pl-4 py-3 md:pl-4 md:py-3 transition w-full mx-auto md:mx-0 max-w-120 min-h-16 cursor-pointer btn-shadow">
     <input type="radio" name="property_type" value="戸建て" class="sr-only peer" />
     <img src="/images/house-icon.png" alt="戸建て" class="w-12 md:w-16 mb-2 absolute left-4 md:left-8 top-1/2 -translate-y-1/2" />
     <span class="block w-full text-center font-semibold text-sm md:text-[18px]">戸建て</span>
   </label>
-  <label class="relative flex items-center bg-white border border-[1.5px] [border-color:var(--color-brown)] rounded-lg px-4 py-4 md:px-8 md:py-6 transition w-full mx-auto md:mx-0 max-w-[480px] min-h-[64px] cursor-pointer" style="box-shadow:0px 2px 2px 0px #00000033;">
+  <label class="relative flex items-center bg-white border border-[1.5px] border-brown rounded-lg px-4 py-4 md:px-8 md:py-6 transition w-full mx-auto md:mx-0 max-w-120 min-h-16 cursor-pointer btn-shadow">
     <input type="radio" name="property_type" value="マンション・アパート" class="sr-only peer" />
     <img src="/images/apartment-icon.png" alt="マンション・アパート" class="w-12 md:w-16 mb-2 absolute left-4 md:left-8 top-1/2 -translate-y-1/2" />
     <span class="block w-full text-center font-semibold text-sm md:text-[18px]">マンション・アパート</span>
   </label>
-  <label class="relative flex items-center bg-white border border-[1.5px] [border-color:var(--color-brown)] rounded-lg px-4 py-4 md:px-8 md:py-6 transition w-full mx-auto md:mx-0 max-w-[480px] min-h-[64px] cursor-pointer" style="box-shadow:0px 2px 2px 0px #00000033;">
+  <label class="relative flex items-center bg-white border border-[1.5px] border-brown rounded-lg px-4 py-4 md:px-8 md:py-6 transition w-full mx-auto md:mx-0 max-w-120 min-h-16 cursor-pointer btn-shadow">
     <input type="radio" name="property_type" value="店舗・事務所" class="sr-only peer" />
     <img src="/images/store-icon.png" alt="店舗・事務所" class="w-12 md:w-16 mb-2 absolute left-4 md:left-8 top-1/2 -translate-y-1/2" />
     <span class="block w-full text-center font-semibold text-sm md:text-[18px]">店舗・事務所</span>

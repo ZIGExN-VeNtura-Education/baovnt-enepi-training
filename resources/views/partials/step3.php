@@ -28,15 +28,15 @@
         </label>
         <div class="flex flex-col gap-4 my-4 md:flex-row md:gap-8">
           <label class="flex items-center cursor-pointer px-2 py-1 md:px-4 md:py-3 w-full md:w-auto">
-            <input type="checkbox" name="equipment[]" value="ガスコンロ" class="border border-[color:var(--color-lightgray)] mr-4 w-[22px] h-[22px]" />
+            <input type="checkbox" name="equipment[]" value="ガスコンロ" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
             <span class="text-[18px]">ガスコンロ</span>
           </label>
           <label class="flex items-center cursor-pointer px-2 py-1 md:px-4 md:py-3 w-full md:w-auto">
-            <input type="checkbox" name="equipment[]" value="ガス給湯器" class="border border-[color:var(--color-lightgray)] mr-4 w-[22px] h-[22px]" />
+            <input type="checkbox" name="equipment[]" value="ガス給湯器" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
             <span class="text-[18px]">ガス給湯器</span>
           </label>
           <label class="flex items-center cursor-pointer px-2 py-1 md:px-4 md:py-3 w-full md:w-auto">
-            <input type="checkbox" name="equipment[]" value="ストーブ" class="border border-[color:var(--color-lightgray)] mr-4 w-[22px] h-[22px]" />
+            <input type="checkbox" name="equipment[]" value="ストーブ" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
             <span class="text-[18px]">ストーブ</span>
           </label>
         </div>

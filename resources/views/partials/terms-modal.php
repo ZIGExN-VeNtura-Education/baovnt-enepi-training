@@ -1,5 +1,5 @@
 <div id="termsModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden">
-  <div class="bg-gray-100 rounded-lg shadow-lg w-[90vw] max-w-[390px] md:max-w-[768px] lg:max-w-[960px] max-h-[90vh] overflow-y-auto p-6 md:p-8 lg:p-12 relative">
+  <div class="bg-gray-100 rounded-lg shadow-lg w-[90vw] max-w-[390px] md:max-w-3xl lg:max-w-7xl max-h-[90vh] overflow-y-auto p-6 md:p-8 lg:p-12 relative">
     <!-- Close icon -->
     <button id="closeTermsModalIcon" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700 focus:outline-none" aria-label="閉じる">
       <img src="/images/close-icon.png" alt="閉じる" class="w-6 h-6 object-contain" />
