@@ -9,10 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function showStep(step) {
     steps.forEach((el, idx) => {
       if (idx === step - 1) {
-        console.log("🚀 ~ steps.forEach ~ idx1:", idx, step);
         el.classList.remove('hidden');
       } else {
-        console.log("🚀 ~ steps.forEach ~ idx1:", idx, step);
         el.classList.add('hidden');
       }
     });
@@ -53,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     if (step === 2) {
-      const fields = ['postcode', 'prefecture', 'city', 'address'];
+      const fields = ['postcode', 'prefecture', 'address'];
       fields.forEach(name => {
         const input = form.querySelector(`[data-step="2"] [name="${name}"]`);
         if (input && !input.value.trim()) {
@@ -62,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
           err.className = 'js-error text-red-500 text-xs mt-1';
           err.innerText = '必須項目です';
           input.parentNode.appendChild(err);
-          valid = true;
+          valid = false;
         }
       });
     }
@@ -74,11 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
         err.className = 'js-error text-red-500 text-xs mt-2';
         err.innerText = '利用状況を選択してください';
         company.parentNode.appendChild(err);
-        valid = true;
+        valid = false;
       }
     }
     if (step === 4) {
-      // Step 4: validate liên lạc
       const fields = ['name', 'phone', 'email'];
       fields.forEach(name => {
         const input = form.querySelector(`[data-step="4"] [name="${name}"]`);
@@ -119,10 +116,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentStep > 1) {
           showStep(currentStep - 1);
         }
-      } else if (btnText === '完了' || btnText === '【無料】料金を比較する') {
+      } else if (btnText === '【無料】料金を比較する') {
         e.preventDefault();
         if (validateStep(currentStep)) {
-          // Submit toàn bộ form
           form.submit();
         }
       }
@@ -131,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   showStep(1);
 
-  // Toggle chi tiết step3 (dùng click, không dùng checkbox)
   document.querySelectorAll('.toggle-detail').forEach(function(toggle) {
     toggle.addEventListener('click', function() {
       var content = toggle.parentNode.querySelector('.toggle-detail-content');
@@ -144,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     });
-    // Mặc định mở: arrow-up hiện, arrow-down ẩn
     var content = toggle.parentNode.querySelector('.toggle-detail-content');
     var arrows = toggle.querySelectorAll('.toggle-arrow');
     if (content && arrows.length === 2) {

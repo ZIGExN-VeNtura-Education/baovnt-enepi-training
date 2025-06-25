@@ -19,6 +19,6 @@
   </button>
 </div>
 
-<div class="w-full flex justify-center mb-8 px-2 md:px-0">
+<div class="w-full flex flex-col md:flex-row justify-center mb-8 px-2 md:px-0">
   <button class="w-full md:w-auto bg-orange text-white font-bold rounded-full px-8 md:px-12 py-3 shadow transition text-base md:text-lg">次へ</button>
 </div> 

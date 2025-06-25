@@ -52,8 +52,8 @@
   </div>
   <p class="text-xs text-center my-10">
     個人情報の取り扱いについては<span class="text-lightblue">利用規約</span>および<span class="text-lightblue">プライバシーポリシー</span>に同意してください
-  <div class="flex flex-row justify-center items-center gap-10">
-    <button type="button" class="btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition">戻る</button>
-    <button type="submit" class="btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">【無料】料金を比較する</button>
+  <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10">
+    <button type="button" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition">戻る</button>
+    <button type="submit" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">【無料】料金を比較する</button>
   </div>
 </form>

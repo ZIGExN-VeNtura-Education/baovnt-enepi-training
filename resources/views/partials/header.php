@@ -6,7 +6,6 @@
       </a>
       <img src="/images/reward.jpg" alt="Reward" class="h-8" />
     </div>
-    <!-- Bên phải: phone button + text -->
     <div class="flex flex-col items-end">
       <a href="tel:0120771664" class="bg-white text-lightblue px-14 py-2 rounded-full border border-lightblue transition text-base font-bold shadow flex items-center">
         0120-771-664

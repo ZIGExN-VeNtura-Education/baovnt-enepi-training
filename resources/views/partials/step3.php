@@ -16,7 +16,7 @@
 
   <div>
     <div class="toggle-detail relative flex items-center cursor-pointer select-none mb-2 bg-paleblue text-center text-[18px] font-semibold min-h-[48px]">
-      <div class="block w-full text-[18px]">詳細な結果をご覧いただくにはこちら</div>
+      <div class="block w-full text-sm md:text-[18px]">詳細な結果をご覧いただくにはこちら</div>
       <img src="/images/arrow-up.png" alt="toggle" class="toggle-arrow absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5" style="display:inline;" />
       <img src="/images/arrow-down.png" alt="toggle" class="toggle-arrow absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5" style="display:none;" />
     </div>
@@ -24,19 +24,19 @@
       <div>
         <label class="flex items-center gap-2 mb-3">
           <span class="inline-block text-xs rounded px-1 py-0.5 mr-1 bg-gray text-white">任意</span>
-          <span class="block font-semibold text-[18px]">利用中の以下の設備はありますか？</span>
+          <span class="block font-semibold text-sm md:text-[18px]">利用中の以下の設備はありますか？</span>
         </label>
-        <div class="flex flex-row gap-8 my-4">
-          <label class="flex items-center cursor-pointer mx-4">
-            <input type="checkbox" name="equipment[]" value="ガスコンロ" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
+        <div class="flex flex-col gap-4 my-4 md:flex-row md:gap-8">
+          <label class="flex items-center cursor-pointer px-2 py-1 md:px-4 md:py-3 w-full md:w-auto">
+            <input type="checkbox" name="equipment[]" value="ガスコンロ" class="border border-[color:var(--color-lightgray)] mr-4 w-[22px] h-[22px]" />
             <span class="text-[18px]">ガスコンロ</span>
           </label>
-          <label class="flex items-center cursor-pointer mr-4">
-            <input type="checkbox" name="equipment[]" value="ガス給湯器" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
+          <label class="flex items-center cursor-pointer px-2 py-1 md:px-4 md:py-3 w-full md:w-auto">
+            <input type="checkbox" name="equipment[]" value="ガス給湯器" class="border border-[color:var(--color-lightgray)] mr-4 w-[22px] h-[22px]" />
             <span class="text-[18px]">ガス給湯器</span>
           </label>
-          <label class="flex items-center cursor-pointer">
-            <input type="checkbox" name="equipment[]" value="ストーブ" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
+          <label class="flex items-center cursor-pointer px-2 py-1 md:px-4 md:py-3 w-full md:w-auto">
+            <input type="checkbox" name="equipment[]" value="ストーブ" class="border border-[color:var(--color-lightgray)] mr-4 w-[22px] h-[22px]" />
             <span class="text-[18px]">ストーブ</span>
           </label>
         </div>
@@ -98,8 +98,8 @@
     </div>
   </div>
 
-  <div class="flex flex-row justify-center items-center gap-10 mt-6">
-    <button type="button" class="btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition">戻る</button>
-    <button type="submit" class="btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">次へ</button>
+  <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mt-6">
+    <button type="button" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition">戻る</button>
+    <button type="submit" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">次へ</button>
   </div>
 </div> 

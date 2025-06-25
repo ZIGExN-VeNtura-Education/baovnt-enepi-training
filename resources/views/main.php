@@ -5,7 +5,7 @@
     </h1>
     <p class="text-xs text-center font-normal py-4">※削減金額は条件により異なります</p>
   </div>
-  <form id="multiStepForm" class="w-full max-w-[760px] mx-auto bg-white rounded-xl border-4 border-lightblue p-10">
+  <form id="multiStepForm" class="w-full max-w-[760px] mx-auto bg-white rounded-xl border-4 border-lightblue p-4 md:p-10">
     <?php include __DIR__ . '/partials/processbar.php'; ?>
     <!-- Step 1 -->
     <div class="step" data-step="1">
