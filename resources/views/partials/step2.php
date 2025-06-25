@@ -23,6 +23,7 @@
     </label>
     <select name="prefecture" required class="w-full border <?php echo isset($errors['prefecture']) ? 'border-red-500' : 'border-gray-300'; ?> rounded px-3 py-2 focus:outline-none focus:ring-2 <?php echo isset($errors['prefecture']) ? 'focus:ring-red-400' : 'focus:ring-blue-400'; ?>">
       <option value="" disabled selected>選択してください</option>
+      <option value="tokyo">東京都</option>
     </select>
     <?php if(isset($errors['prefecture'])): ?>
       <p class="text-red-500 text-xs mt-1"><?php echo $errors['prefecture']; ?></p>

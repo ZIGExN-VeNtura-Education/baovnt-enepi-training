@@ -1,4 +1,5 @@
 import './privacy-modal.js';
+import './terms-modal.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('multiStepForm');
@@ -41,18 +42,28 @@ document.addEventListener('DOMContentLoaded', function () {
     form.querySelectorAll('.border-red-500').forEach(e => e.classList.remove('border-red-500'));
 
     if (step === 1) {
-      const selected = form.querySelector('[data-step="1"] button.selected');
+      const selected = form.querySelector('[name="property_type"]:checked');
+      const stepError = form.querySelector('.step[data-step="1"] .step-error');
       if (!selected) {
-        const btns = form.querySelectorAll('[data-step="1"] button');
-        btns.forEach(btn => btn.classList.add('border-red-500'));
-        const err = document.createElement('div');
-        err.className = 'js-error text-red-500 text-xs text-center mt-2';
-        err.innerText = '物件種別を選択してください';
-        btns[btns.length-1].parentNode.appendChild(err);
+        form.querySelectorAll('[name="property_type"]').forEach(radio => {
+          radio.parentElement.classList.add('border-red-500');
+        });
+        
+        stepError.innerText = '物件種別を選択してください';
+        stepError.classList.remove('hidden');
         valid = false;
+      } else {
+        if (!stepError.classList.contains('hidden')) {
+          stepError.classList.add('hidden');
+        }
       }
     }
     if (step === 2) {
+      const errorMessages = {
+        postcode: '郵便番号を入力してください',
+        prefecture: '都道府県を選択してください',
+        address: '住所を入力してください'
+      };
       const fields = ['postcode', 'prefecture', 'address'];
       fields.forEach(name => {
         const input = form.querySelector(`[data-step="2"] [name="${name}"]`);
@@ -60,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
           input.classList.add('border-red-500');
           const err = document.createElement('div');
           err.className = 'js-error text-red-500 text-xs mt-1';
-          err.innerText = '必須項目です';
+          err.innerText = errorMessages[name] || '必須項目です';
           input.parentNode.appendChild(err);
           valid = false;
         }
@@ -68,16 +79,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (step === 3) {
       const company = form.querySelector('[data-step="3"] input[name="company"]');
-      if (!company) {
+      if (company && !company.value.trim()) {
         const err = document.createElement('div');
         company.classList.add('border-red-500');
         err.className = 'js-error text-red-500 text-xs mt-2';
-        err.innerText = '利用状況を選択してください';
+        err.innerText = 'ガス会社名を入力してください';
         company.parentNode.appendChild(err);
         valid = false;
       }
     }
     if (step === 4) {
+      const errorMessages = {
+        name: 'お名前を入力してください',
+        phone: '電話番号を入力してください',
+        email: 'メールアドレスを入力してください'
+      };
       const fields = ['name', 'phone', 'email'];
       fields.forEach(name => {
         const input = form.querySelector(`[data-step="4"] [name="${name}"]`);
@@ -85,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
           input.classList.add('border-red-500');
           const err = document.createElement('div');
           err.className = 'js-error text-red-500 text-xs mt-1';
-          err.innerText = '必須項目です';
+          err.innerText = errorMessages[name] || '必須項目です';
           input.parentNode.appendChild(err);
           valid = false;
         }
@@ -147,5 +163,17 @@ document.addEventListener('DOMContentLoaded', function () {
       arrows[0].style.display = 'inline';
       arrows[1].style.display = 'none';
     }
+  });
+
+  document.querySelectorAll('input[name="property_type"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('input[name="property_type"]').forEach(r => {
+        r.parentElement.classList.remove('border-red-500')
+        r.parentElement.classList.remove('border-blue-600', 'ring-2', 'ring-blue-100');
+      });
+      if (this.checked) {
+        this.parentElement.classList.add('border-blue-600', 'ring-2', 'ring-blue-100');
+      }
+    });
   });
 });
