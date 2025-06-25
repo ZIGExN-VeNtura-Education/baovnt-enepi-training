@@ -1,37 +1,105 @@
-<?php include __DIR__ . '/banner.php'; ?>
-<?php $step = 3; include __DIR__ . '/processbar.php'; ?>
-
-<!-- Tiêu đề -->
 <div class="w-full text-center mt-8 mb-4">
-  <h2 class="text-base md:text-lg lg:text-xl font-bold text-gray-800">利用状況を教えてください</h2>
+  <h2 class="text-lg md:text-[28px] font-bold">ガスの利用状況を教えてください</h2>
+  <p class="inline-block text-xs px-3 py-1 bg-paleblue mt-2">
+    ※任意の項目は分かる範囲でご入力ください
+  </p> 
 </div>
 
-<!-- Các lựa chọn toggle -->
-<div class="w-full max-w-2xl mx-auto flex flex-col md:flex-row gap-4 md:gap-8 mb-8 px-4">
-  <label class="flex-1 cursor-pointer">
-    <input type="radio" name="usage" class="peer hidden" checked />
-    <div class="flex flex-col items-center border-2 border-blue-400 rounded-lg px-4 py-6 shadow peer-checked:bg-blue-50 transition">
-      <span class="font-semibold text-gray-700 text-sm md:text-base mb-2">現在ガスを利用している</span>
-      <span class="text-xs text-gray-500">(Đang sử dụng gas)</span>
+<div class="w-full max-w-2xl mx-auto flex flex-col gap-6 px-4">
+  <div>
+    <label class="flex items-center gap-2 mb-3">
+      <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>
+      <span class="block font-semibold text-[18px]">ガス会社名を入力</span>
+    </label>
+    <input type="text" name="company" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lightblue" placeholder="例）株式会社エネピ" />
+  </div>
+
+  <div>
+    <div class="toggle-detail relative flex items-center cursor-pointer select-none mb-2 bg-paleblue text-center text-[18px] font-semibold min-h-[48px]">
+      <div class="block w-full text-[18px]">詳細な結果をご覧いただくにはこちら</div>
+      <img src="/images/arrow-up.png" alt="toggle" class="toggle-arrow absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5" style="display:inline;" />
+      <img src="/images/arrow-down.png" alt="toggle" class="toggle-arrow absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5" style="display:none;" />
     </div>
-  </label>
-  <label class="flex-1 cursor-pointer">
-    <input type="radio" name="usage" class="peer hidden" />
-    <div class="flex flex-col items-center border-2 border-blue-400 rounded-lg px-4 py-6 shadow peer-checked:bg-blue-50 transition">
-      <span class="font-semibold text-gray-700 text-sm md:text-base mb-2">これから利用する</span>
-      <span class="text-xs text-gray-500">(Sẽ sử dụng gas)</span>
+    <div class="toggle-detail-content flex flex-col gap-6 mt-5">
+      <div>
+        <label class="flex items-center gap-2 mb-3">
+          <span class="inline-block text-xs rounded px-1 py-0.5 mr-1 bg-gray text-white">任意</span>
+          <span class="block font-semibold text-[18px]">利用中の以下の設備はありますか？</span>
+        </label>
+        <div class="flex flex-row gap-8 my-4">
+          <label class="flex items-center cursor-pointer mx-4">
+            <input type="checkbox" name="equipment[]" value="ガスコンロ" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
+            <span class="text-[18px]">ガスコンロ</span>
+          </label>
+          <label class="flex items-center cursor-pointer mr-4">
+            <input type="checkbox" name="equipment[]" value="ガス給湯器" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
+            <span class="text-[18px]">ガス給湯器</span>
+          </label>
+          <label class="flex items-center cursor-pointer">
+            <input type="checkbox" name="equipment[]" value="ストーブ" class="border border-lightgray mr-4 w-[22px] h-[22px]" />
+            <span class="text-[18px]">ストーブ</span>
+          </label>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex-1">
+          <label class="flex items-center gap-2 mb-3">
+            <span class="inline-block text-xs rounded px-1 py-0.5 mr-1 bg-gray text-white">任意</span>
+            <span class="block font-semibold text-[18px]">使用月を選択</span>
+          </label>
+          <select name="month" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lightblue">
+            <option value="" disabled selected>選択してください</option>
+          </select>
+        </div>
+        <div class="flex-1 flex items-end">
+          <div class="w-full">
+            <label class="flex items-center gap-2 mb-3">
+              <span class="inline-block text-xs rounded px-1 py-0.5 mr-1 bg-gray text-white">任意</span>
+              <span class="block font-semibold text-[18px]">ガス代を入力</span>
+            </label>
+            <div class="flex items-center">
+              <input
+                type="text"
+                name="gas_fee"
+                class="flex-1 border border-lightgray rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lightblue mr-3"
+                placeholder="例）5,000"
+              />
+              <span class="font-semibold text-[18px]">
+                円
+                <span class="text-xs font-normal align-top leading-6">(税込)</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex-1 flex items-end">
+          <div class="w-full">
+            <label class="flex items-center gap-2 mb-3">
+              <span class="inline-block text-xs rounded px-1 py-0.5 mr-1 bg-gray text-white">任意</span>
+              <span class="block font-semibold text-[18px]">使用量を入力</span>
+            </label>
+            <div class="flex items-center">
+              <input type="text" name="usage_amount" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lightblue mr-3" placeholder="例）10" />
+              <span class="font-semibold">m<sup>3</sup></span>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <label class="flex items-center gap-2 mb-3">
+            <span class="inline-block text-xs rounded px-1 py-0.5 mr-1 bg-gray text-white">任意</span>
+            <span class="block font-semibold text-[18px]">世帯人数を選択</span>
+          </label>
+          <select name="household" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-lightblue">
+            <option value="" disabled selected>選択してください</option>
+          </select>
+        </div>
+      </div>
     </div>
-  </label>
-</div>
+  </div>
 
-<!-- Có thể bổ sung trường nhập nếu chọn option 1 -->
-<div class="w-full max-w-2xl mx-auto flex flex-col gap-4 px-4 mb-8">
-  <label class="block text-gray-700 font-semibold mb-1">ご利用人数 (Số người sử dụng)</label>
-  <input type="number" min="1" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="例: 3" />
-</div>
-
-<!-- Nút điều hướng -->
-<div class="flex flex-col md:flex-row justify-between items-center gap-4 mt-6 w-full max-w-2xl mx-auto px-4 mb-8">
-  <button type="button" class="w-full md:w-auto bg-gray-200 text-gray-700 font-bold rounded-full px-8 py-3 shadow hover:bg-gray-300 transition">戻る</button>
-  <button type="submit" class="w-full md:w-auto bg-orange-500 text-white font-bold rounded-full px-8 py-3 shadow hover:bg-orange-600 transition">次へ</button>
+  <div class="flex flex-row justify-center items-center gap-10 mt-6">
+    <button type="button" class="btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition">戻る</button>
+    <button type="submit" class="btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">次へ</button>
+  </div>
 </div> 

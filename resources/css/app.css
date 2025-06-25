@@ -1,10 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Noto Sans", "sans-serif";
+  --font-roboto: "Roboto", sans-serif; 
   --color-lightblue: #009DE6;
   --color-brown: #484500;
   --color-brandred: #E02E23;
-  --color-processbar-inactive: #CCC0C0;
+  --color-lightgray: #CCC0C0;
+  --color-paleblue: #E2F6FF;
+  --color-orange: #EA6101;
+  --color-gray: #777777;
+}
+
+@layer base {
+  body {
+    color: var(--color-brown);
+  }
+}
+
+.btn-shadow {
+  box-shadow: 0px 2px 2px 0px #00000033;
+}
+
+.processbar-step .processbar-bg {
+  fill: var(--color-lightgray);
+  transition: fill 0.2s;
+}
+.processbar-step[data-active="1"] .processbar-bg,
+.processbar-step[data-done="1"] .processbar-bg {
+  fill: var(--color-lightblue);
+}
+.processbar-step .processbar-label {
+  fill: white;
+  font-weight: normal;
+  transition: font-weight 0.2s;
+}
+.processbar-step[data-active="1"] .processbar-label {
+  font-weight: bold;
+}
+.processbar-step .processbar-underline {
+  display: none;
+}
+.processbar-step[data-active="1"] .processbar-underline {
+  display: block;
+  fill: white;
 }

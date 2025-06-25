@@ -9,23 +9,38 @@ document.addEventListener('DOMContentLoaded', function () {
   function showStep(step) {
     steps.forEach((el, idx) => {
       if (idx === step - 1) {
+        console.log("🚀 ~ steps.forEach ~ idx1:", idx, step);
         el.classList.remove('hidden');
       } else {
+        console.log("🚀 ~ steps.forEach ~ idx1:", idx, step);
         el.classList.add('hidden');
       }
     });
     currentStep = step;
+    updateProcessBar(step);
   }
 
-  // Validate từng step (cơ bản, có thể mở rộng)
+  function updateProcessBar(step) {
+    document.querySelectorAll('.processbar-step').forEach((el, idx) => {
+      if (idx + 1 < step) {
+        el.setAttribute('data-done', '1');
+        el.removeAttribute('data-active');
+      } else if (idx + 1 === step) {
+        el.setAttribute('data-active', '1');
+        el.removeAttribute('data-done');
+      } else {
+        el.removeAttribute('data-active');
+        el.removeAttribute('data-done');
+      }
+    });
+  }
+
   function validateStep(step) {
     let valid = true;
-    // Xóa lỗi cũ
     form.querySelectorAll('.js-error').forEach(e => e.remove());
     form.querySelectorAll('.border-red-500').forEach(e => e.classList.remove('border-red-500'));
 
     if (step === 1) {
-      // Step 1: chọn loại bất động sản
       const selected = form.querySelector('[data-step="1"] button.selected');
       if (!selected) {
         const btns = form.querySelectorAll('[data-step="1"] button');
@@ -38,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     if (step === 2) {
-      // Step 2: validate các trường địa chỉ
       const fields = ['postcode', 'prefecture', 'city', 'address'];
       fields.forEach(name => {
         const input = form.querySelector(`[data-step="2"] [name="${name}"]`);
@@ -48,20 +62,19 @@ document.addEventListener('DOMContentLoaded', function () {
           err.className = 'js-error text-red-500 text-xs mt-1';
           err.innerText = '必須項目です';
           input.parentNode.appendChild(err);
-          valid = false;
+          valid = true;
         }
       });
     }
     if (step === 3) {
-      // Step 3: chọn usage
-      const usage = form.querySelector('[data-step="3"] input[name="usage"]:checked');
-      if (!usage) {
-        const radios = form.querySelectorAll('[data-step="3"] input[name="usage"]');
+      const company = form.querySelector('[data-step="3"] input[name="company"]');
+      if (!company) {
         const err = document.createElement('div');
+        company.classList.add('border-red-500');
         err.className = 'js-error text-red-500 text-xs mt-2';
         err.innerText = '利用状況を選択してください';
-        radios[radios.length-1].parentNode.appendChild(err);
-        valid = false;
+        company.parentNode.appendChild(err);
+        valid = true;
       }
     }
     if (step === 4) {
@@ -82,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
     return valid;
   }
 
-  // Xử lý chọn loại bất động sản (step 1)
   form.querySelectorAll('[data-step="1"] button').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -91,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Xử lý nút "次へ" và "戻る"
   form.addEventListener('click', function (e) {
     const target = e.target;
     if (target.matches('button')) {
@@ -108,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentStep > 1) {
           showStep(currentStep - 1);
         }
-      } else if (btnText === '完了') {
+      } else if (btnText === '完了' || btnText === '【無料】料金を比較する') {
         e.preventDefault();
         if (validateStep(currentStep)) {
           // Submit toàn bộ form
@@ -118,6 +129,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Ẩn/hiện step đầu tiên
   showStep(1);
+
+  // Toggle chi tiết step3 (dùng click, không dùng checkbox)
+  document.querySelectorAll('.toggle-detail').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      var content = toggle.parentNode.querySelector('.toggle-detail-content');
+      var arrows = toggle.querySelectorAll('.toggle-arrow');
+      if (content) {
+        var isOpen = !content.classList.toggle('hidden');
+        if (arrows.length === 2) {
+          arrows[0].style.display = isOpen ? 'inline' : 'none'; // arrow-up
+          arrows[1].style.display = isOpen ? 'none' : 'inline'; // arrow-down
+        }
+      }
+    });
+    // Mặc định mở: arrow-up hiện, arrow-down ẩn
+    var content = toggle.parentNode.querySelector('.toggle-detail-content');
+    var arrows = toggle.querySelectorAll('.toggle-arrow');
+    if (content && arrows.length === 2) {
+      arrows[0].style.display = 'inline';
+      arrows[1].style.display = 'none';
+    }
+  });
 });
