@@ -1,4 +1,3 @@
-// Hiển thị modal khi click vào link プライバシーポリシー
 window.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.js-privacy-link').forEach(el => {
     el.addEventListener('click', function(e) {
@@ -6,14 +5,21 @@ window.addEventListener('DOMContentLoaded', function() {
       document.getElementById('privacyModal').classList.remove('hidden');
     });
   });
-  // Đóng modal khi click nút
+
   const closeBtn = document.getElementById('closePrivacyModal');
   if (closeBtn) {
     closeBtn.addEventListener('click', function() {
       document.getElementById('privacyModal').classList.add('hidden');
     });
   }
-  // Đóng khi click ra ngoài
+  
+  const closeIcon = document.getElementById('closePrivacyModalIcon');
+  if (closeIcon) {
+    closeIcon.addEventListener('click', function() {
+      document.getElementById('privacyModal').classList.add('hidden');
+    });
+  }
+  
   const modal = document.getElementById('privacyModal');
   if (modal) {
     modal.addEventListener('click', function(e) {

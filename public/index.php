@@ -26,5 +26,6 @@ function viteAsset(string $entry) {
     <?php include __DIR__ . '/../resources/views/partials/header.php'; ?>
     <?php include __DIR__ . '/../resources/views/partials/banner.php'; ?>
     <?php include __DIR__ . '/../resources/views/main.php'; ?>
+    <?php include __DIR__ . '/../resources/views/partials/privacy-modal.php'; ?>
 </body>
 </html>

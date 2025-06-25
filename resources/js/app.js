@@ -1,3 +1,5 @@
+import './privacy-modal.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('multiStepForm');
   if (!form) return;

@@ -7,8 +7,8 @@ $steps = [
   ['label' => '連絡先'],
 ];
 ?>
-<div class="flex flex-col items-center max-w-[320px] w-full mx-auto md:max-w-none">
-  <div class="flex flex-row items-center justify-between w-full">
+<div class="flex flex-col items-center max-w-[320px] mx-auto md:max-w-none">
+  <div class="flex flex-row items-center justify-between w-full md:w-auto">
     <?php foreach (
       $steps as $i => $s): ?>
       <div class="processbar-step flex flex-col items-center w-[90px] md:w-[131px] relative z-<?php echo 10*($i+1); ?><?php if($i>0): ?> -ml-[8px] md:-ml-[14px]<?php endif; ?>" data-step="<?php echo $i+1; ?>" <?php if (($i+1)==$step): ?>data-active="1"<?php endif; ?>>
