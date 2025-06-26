@@ -8,7 +8,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-// Không cần logic JS cho component này
-</script> 

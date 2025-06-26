@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full text-center mt-8 mb-4">
+  <div class="w-full text-center mb-10">
     <h2 class="text-lg md:text-[28px] font-bold">利用先の住所を教えてください</h2>
     <p class="inline-block text-xs px-3 py-1 bg-paleblue mt-2">
       ※お客様の情報が一般に公開されることはありません
     </p>
   </div>
-  <div class="flex flex-col md:flex-row gap-4 my-8">
+  <div class="flex flex-col md:flex-row gap-4 mt-10 mb-8">
     <div class="flex-1">
       <label class="flex items-center gap-2 mb-3">
         <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>
@@ -37,19 +37,51 @@
       :value="address" @input="$emit('update:address', $event.target.value)" />
     <p v-if="errors?.address" class="text-red-500 text-xs mt-1">{{ errors.address }}</p>
   </div>
-  <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mt-6">
+  <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mt-10">
     <button type="button" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition" @click="$emit('prev')">戻る</button>
     <button type="button" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition" @click="$emit('next')">次へ</button>
   </div>
 </template>
 
-<script setup>
-import { defineProps, defineEmits } from 'vue';
-const props = defineProps({
-  postcode: String,
-  prefecture: String,
-  address: String,
-  errors: Object
-});
-const emit = defineEmits(['update:postcode', 'update:prefecture', 'update:address', 'next', 'prev']);
+<script>
+export default {
+  name: 'Step2Component',
+  props: {
+    postcode: String,
+    prefecture: String,
+    address: String
+  },
+  data() {
+    return {
+      errors: {}
+    }
+  },
+  emits: [
+    'update:postcode',
+    'update:prefecture',
+    'update:address',
+    'next',
+    'prev'
+  ],
+  methods: {
+    validate() {
+      let valid = true;
+      const errs = {};
+      if (!this.postcode) {
+        errs.postcode = '郵便番号を入力してください';
+        valid = false;
+      }
+      if (!this.prefecture) {
+        errs.prefecture = '都道府県を選択してください';
+        valid = false;
+      }
+      if (!this.address) {
+        errs.address = '住所を入力してください';
+        valid = false;
+      }
+      this.errors = errs;
+      return valid;
+    }
+  }
+}
 </script> 

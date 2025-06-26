@@ -24,17 +24,24 @@
   </div>
 </template>
 
-<script setup>
-import { ref, defineProps } from 'vue';
-const props = defineProps({
-  currentStep: { type: Number, default: 1 }
-});
-const steps = [
-  { label: '物件情報' },
-  { label: '住所' },
-  { label: '利用状況' },
-  { label: '連絡先' },
-];
+<script>
+export default {
+  name: 'ProcessbarComponent',
+  props: {
+    currentStep: {
+      type: Number,
+      default: 1
+    }
+  },
+  data() {
+    return {
+      steps: [
+        { label: '物件情報' },
+        { label: '住所' },
+        { label: '利用状況' },
+        { label: '連絡先' },
+      ]
+    };
+  }
+}
 </script>
-
-
