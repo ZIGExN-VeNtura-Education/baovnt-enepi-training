@@ -1,4 +1,4 @@
-<div class="w-full text-center mt-8 mb-4">
+<div class="w-full text-center mb-8">
   <h2 class="text-lg md:text-[28px] font-bold">ご連絡先を教えてください</h2>
   <p class="inline-block text-xs px-3 py-1 bg-paleblue mt-2">
     ※お客様の情報が一般に公開されることはありません
@@ -6,7 +6,7 @@
 </div>
 
 <form class="w-full max-w-2xl mx-auto flex flex-col gap-4 px-4">
-  <div class="flex flex-col md:flex-row gap-4 my-8">
+  <div class="flex flex-col md:flex-row gap-4 mb-8">
     <div class="flex-1">
       <label class="flex items-center gap-2 mb-3">
         <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>
@@ -50,10 +50,13 @@
       <?php endif; ?>
     </div>
   </div>
-  <p class="text-xs text-center my-10">
-    個人情報の取り扱いについては<span class="text-lightblue">利用規約</span>および<span class="text-lightblue js-terms-link cursor-pointer">プライバシーポリシー</span>に同意してください
-  <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10">
-    <button type="button" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition">戻る</button>
-    <button type="submit" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">【無料】料金を比較する</button>
-  </div>
 </form>
+
+<p class="text-xs text-center mt-10">
+  個人情報の取り扱いについては<span class="text-lightblue">利用規約</span>および<span class="text-lightblue js-terms-link cursor-pointer">プライバシーポリシー</span>に同意してください
+</p>
+
+<div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mt-10">
+  <button type="button" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition">戻る</button>
+  <button type="submit" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">【無料】料金を比較する</button>
+</div>

@@ -21,10 +21,10 @@ export class MultiStepForm {
     }
     handleStep1RadioChange() {
         this.propertyTypeInputs.forEach(r => {
-            r.parentElement.classList.remove('border-blue-600', 'ring-2', 'ring-blue-100', 'border-red-500');
+            r.parentElement.classList.remove('border-lightblue', 'ring-2', 'ring-blue-100', 'border-red-500');
         });
         const checked = this.form.querySelector('input[name="property_type"]:checked');
-        checked?.parentElement.classList.add('border-blue-600', 'ring-2', 'ring-blue-100');
+        checked?.parentElement.classList.add('border-lightblue', 'ring-2', 'ring-blue-100');
         this.form.querySelector('.step[data-step="1"] .step-error')?.classList.add('hidden');
     }
     handleFormClick(e) {
@@ -90,7 +90,9 @@ export class MultiStepForm {
                     stepSelector: '.step[data-step="1"]',
                     type: 'radio',
                     errorSelector: '.step-error',
-                    errorMessage: '物件種別を選択してください',
+                    errorMessages: {
+                        property_type: '物件種別を選択してください'
+                    },
                 });
             case 2:
                 return this.validateFields({
@@ -138,14 +140,11 @@ export class MultiStepForm {
                     radio.parentElement.classList.add('border-red-500');
                 });
                 if (stepError) {
-                    stepError.innerText = errorMessage;
                     stepError.classList.remove('hidden');
                 }
                 valid = false;
-            } else {
-                if (!stepError?.classList.contains('hidden')) {
-                    stepError?.classList.add('hidden');
-                }
+            } else if (!stepError?.classList.contains('hidden')) {
+                stepError?.classList.add('hidden');
             }
         }
         if (type === 'input') {

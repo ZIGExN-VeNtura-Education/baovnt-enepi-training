@@ -8,19 +8,19 @@
   <form id="multiStepForm" class="w-full max-w-190 mx-auto bg-white rounded-xl border-4 border-lightblue p-4 md:p-10">
     <?php include __DIR__ . '/partials/processbar.php'; ?>
     <!-- Step 1 -->
-    <div class="step" data-step="1">
+    <div class="step mt-8" data-step="1">
       <?php include __DIR__ . '/partials/step1.php'; ?>
     </div>
     <!-- Step 2 -->
-    <div class="step hidden" data-step="2">
+    <div class="step mt-8 hidden" data-step="2">
       <?php include __DIR__ . '/partials/step2.php'; ?>
     </div>
     <!-- Step 3 -->
-    <div class="step hidden" data-step="3">
+    <div class="step mt-8 hidden" data-step="3">
       <?php include __DIR__ . '/partials/step3.php'; ?>
     </div>
     <!-- Step 4 -->
-    <div class="step hidden" data-step="4">
+    <div class="step mt-8 hidden" data-step="4">
       <?php include __DIR__ . '/partials/step4.php'; ?>
     </div>
   </form>
