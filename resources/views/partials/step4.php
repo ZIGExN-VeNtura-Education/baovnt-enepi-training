@@ -1,4 +1,4 @@
-<div class="w-full text-center mb-8">
+<div class="w-full text-center mb-10">
   <h2 class="text-lg md:text-[28px] font-bold">ご連絡先を教えてください</h2>
   <p class="inline-block text-xs px-3 py-1 bg-paleblue mt-2">
     ※お客様の情報が一般に公開されることはありません
@@ -6,7 +6,7 @@
 </div>
 
 <form class="w-full max-w-2xl mx-auto flex flex-col gap-4 px-4">
-  <div class="flex flex-col md:flex-row gap-4 mb-8">
+  <div class="flex flex-col md:flex-row gap-10 mb-8">
     <div class="flex-1">
       <label class="flex items-center gap-2 mb-3">
         <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>
@@ -28,7 +28,7 @@
       <?php endif; ?>
     </div>
   </div>
-  <div class="flex flex-col md:flex-row gap-4">
+  <div class="flex flex-col md:flex-row gap-10">
     <div class="flex-1">
       <label class="flex items-center gap-2 mb-3">
         <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>

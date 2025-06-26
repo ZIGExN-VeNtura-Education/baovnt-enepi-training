@@ -1,6 +1,6 @@
 
 
-<div class="w-full text-center mb-8">
+<div class="w-full text-center mb-10">
   <h2 class="text-base md:text-lg lg:text-[28px] font-bold">所有種別をお選びください</h2>
 </div>
 
