@@ -1,0 +1,113 @@
+<template>
+  <div>
+    <div class="w-full text-center mb-10">
+      <h2 class="text-lg md:text-[28px] font-bold">ご連絡先を教えてください</h2>
+      <p class="inline-block text-xs px-3 py-1 bg-paleblue mt-2">
+        ※お客様の情報が一般に公開されることはありません
+      </p>
+    </div>
+    <div class="w-full max-w-2xl mx-auto flex flex-col gap-8">
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex-1">
+          <label class="flex items-center gap-2 mb-3">
+            <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>
+            <span class="block text-[18px] font-semibold">お名前を入力</span>
+          </label>
+          <input type="text" name="name" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="例: 山田 太郎"
+            :value="name" @input="$emit('update:name', $event.target.value)" />
+          <p v-if="errors.name" class="text-red-500 text-xs mt-1">{{ errors.name }}</p>
+        </div>
+        <div class="flex-1">
+          <label class="flex items-center gap-2 mb-3">
+            <span class="inline-block text-xs rounded px-1 py-0.5 mr-1 bg-gray text-white">任意</span>
+            <span class="block text-[18px] font-semibold">ふりがなを入力</span>
+          </label>
+          <input type="text" name="furigana" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="例: やまだ たろう"
+            :value="furigana" @input="$emit('update:furigana', $event.target.value)" />
+          <p v-if="errors.furigana" class="text-red-500 text-xs mt-1">{{ errors.furigana }}</p>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex-1">
+          <label class="flex items-center gap-2 mb-3">
+            <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>
+            <span class="block text-[18px] font-semibold">電話番号を入力</span>
+          </label>
+          <input type="tel" name="phone" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="例: 090-1234-5678"
+            :value="phone" @input="$emit('update:phone', $event.target.value)" />
+          <p v-if="errors.phone" class="text-red-500 text-xs mt-1">{{ errors.phone }}</p>
+        </div>
+        <div class="flex-1">
+          <label class="flex items-center gap-2 mb-3">
+            <span class="inline-block bg-brandred text-white text-xs rounded px-1 py-0.5 mr-1" style="border-radius:4px;">必須</span>
+            <span class="block text-[18px] font-semibold">メールアドレスを入力</span>
+          </label>
+          <input type="email" name="email" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="例）info@enepi.jp"
+            :value="email" @input="$emit('update:email', $event.target.value)" />
+          <p v-if="errors.email" class="text-red-500 text-xs mt-1">{{ errors.email }}</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-xs text-center mt-10">
+      個人情報の取扱いについては
+      <span class="text-lightblue">利用規約</span>
+      および
+      <span class="text-lightblue js-terms-link cursor-pointer" @click="showTermsModal = true">プライバシーポリシー</span>
+      に同意してください
+    </p>
+    <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mt-10">
+      <button type="button" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full border-1 border-lightblue text-lightblue font-bold transition" @click="$emit('prev')">戻る</button>
+      <button type="submit" class="w-full md:w-auto btn-shadow text-lg px-14 py-2 rounded-full bg-orange text-white font-bold transition">【無料】料金を比較する</button>
+    </div>
+    <TermsModal v-if="showTermsModal" @close="showTermsModal = false" />
+  </div>
+</template>
+
+<script>
+import TermsModal from './TermsModal.vue';
+export default {
+  name: 'Step4Component',
+  components: {
+    TermsModal
+  },
+  props: {
+    name: String,
+    furigana: String,
+    phone: String,
+    email: String
+  },
+  emits: [
+    'update:name',
+    'update:furigana',
+    'update:phone',
+    'update:email',
+    'prev'
+  ],
+  data() {
+    return {
+      showTermsModal: false,
+      errors: {}
+    }
+  },
+  methods: {
+    validate() {
+      let valid = true;
+      const errs = {};
+      if (!this.name) {
+        errs.name = 'お名前を入力してください';
+        valid = false;
+      }
+      if (!this.phone) {
+        errs.phone = '電話番号を入力してください';
+        valid = false;
+      }
+      if (!this.email) {
+        errs.email = 'メールアドレスを入力してください';
+        valid = false;
+      }
+      this.errors = errs;
+      return valid;
+    }
+  }
+}
+</script> 
